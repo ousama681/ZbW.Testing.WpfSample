@@ -23,12 +23,9 @@ before_build:
 
 build_script:
 - cmd: dotnet build ZbW.Testing.WpfSample.sln
-- cmd: dotnet test ZbW.Testing.WpfSample.Client.IntegrationTests\ZbW.Testing.WpfSample.Client.IntegrationTests.csproj /p:CollectCoverage=true
-/p:CoverletOutput="../CoverageResults/"
-- cmd: dotnet test ZbW.Testing.WpfSample.Client.UnitTests\ZbW.Testing.WpfSample.Client.UnitTests.csproj /p:CollectCoverage=true
-/p:CoverletOutput="../CoverageResults/" /p:MergeWith="../CoverageResults/coverage.json"
-- cmd: dotnet test ZbW.Testing.WpfSample.Libs.IpInfoInterface.IntegrationTests\ZbW.Testing.WpfSample.Libs.IpInfoInterface.IntegrationTests.csproj 
-/p:CollectCoverage=true /p:CoverletOutput="../CoverageResults/" /p:MergeWith="../CoverageResults/coverage.json" /p:CoverletOutputFormat=opencover
+- cmd: dotnet test ZbW.Testing.WpfSample.Client.IntegrationTests\ZbW.Testing.WpfSample.Client.IntegrationTests.csproj /p:CollectCoverage=true /p:CoverletOutput="../CoverageResults/"
+- cmd: dotnet test ZbW.Testing.WpfSample.Client.UnitTests\ZbW.Testing.WpfSample.Client.UnitTests.csproj /p:CollectCoverage=true /p:CoverletOutput="../CoverageResults/" /p:MergeWith="../CoverageResults/coverage.json"
+- cmd: dotnet test ZbW.Testing.WpfSample.Libs.IpInfoInterface.IntegrationTests\ZbW.Testing.WpfSample.Libs.IpInfoInterface.IntegrationTests.csproj /p:CollectCoverage=true /p:CoverletOutput="../CoverageResults/" /p:MergeWith="../CoverageResults/coverage.json" /p:CoverletOutputFormat=opencover
 
 after_build:
 - cmd: dotnet sonarscanner end /d:sonar.login="d5473d461c01314740d6fdee25084c5a6dc20edf"
